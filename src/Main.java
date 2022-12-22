@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         task1();
@@ -8,6 +10,7 @@ public class Main {
         task6();
         task7();
         task8();
+        myownwork();
     }
     public static void task1() {
         System.out.println("Задание 1");
@@ -27,12 +30,19 @@ public class Main {
     public static void task2() {
         System.out.println("\nЗадание 2");
         float first = 27.12F;
+        System.out.println("float first = 27.12F;");
         long second = 987678965549L;
+        System.out.println("long second = 987678965549L;");
         double third = 2.786;
+        System.out.println("double third = 2.786;");
         short fourth = 569;
+        System.out.println("short fourth = 569;");
         int fifth = -159;
+        System.out.println("int fifth = -159;");
         short sixth = 27897;
+        System.out.println("short sixth = 27897;");
         byte seventh = 67;
+        System.out.println("byte seventh = 67;");
     }
     public static void task3() {
         System.out.println("\nЗадание 3");
@@ -99,11 +109,47 @@ public class Main {
         System.out.println("В среднем спортсмен может сбросить этот вес за " + middle + " день");
     }
     public static void task8(){
+        System.out.println("\nЗадание 8");
         int masha = 67760;
         int denis = 83690;
         int kristina = 76230;
         int yearMashaBefore = masha * 12;
         int yearDenisBefore = denis * 12;
         int yearKristinaBefore = kristina * 12;
+        int profitMashaMonth = (masha / 100) * 110;
+        int profitDenisMonth = (denis / 100) * 110;
+        int profitKristinaMonth = (kristina / 100) * 110;
+        int profitYearMasha = profitMashaMonth * 12;
+        int profitYearDenis = profitDenisMonth * 12;
+        int profitYearKristina = profitKristinaMonth * 12;
+        int differenceMasha = profitYearMasha - yearMashaBefore;
+        int differenceDenis = profitYearDenis - yearDenisBefore;
+        int differenceKristina = profitYearKristina - yearKristinaBefore;
+        System.out.println("Маша теперь получает " + profitMashaMonth + " рублей в месяц или " + profitYearMasha + " рублей в год. Годовой доход вырос на " + differenceMasha + " рублей");
+        System.out.println("Денис теперь получает " + profitDenisMonth + " рублей в месяц или " + profitYearDenis + " рублей в год. Годовой доход вырос на " + differenceDenis + " рублей");
+        System.out.println("Кристина теперь получает " + profitKristinaMonth + " рублей в месяц или " + profitYearKristina + " рублей в год. Годовой доход вырос на " + differenceKristina + " рублей");
+    }
+    public static void myownwork() {
+        System.out.println("\nЗадание 8. Другой способ решения последнего задания, но данные нужно вводить самому");
+        Scanner myObj = new Scanner (System.in);
+        System.out.println("Введите ваше имя:");
+        String name = myObj.nextLine();
+        Scanner myNum = new Scanner (System.in);
+        System.out.println("Введите вашу заработную плату:");
+        int wage = Integer.parseInt(myNum.nextLine());
+        Scanner myQuest = new Scanner (System.in);
+        System.out.println("Сколько лет вы работаете на нашу фирму?");
+        int quest = Integer.parseInt(myQuest.nextLine());
+        int experience = 3;
+        if (quest > experience){
+            int boostedWage = (wage / 100) * 110;
+            int profitYear = (boostedWage * 12) - (wage * 12);
+            System.out.println("Уважаемый(ая) " + name + ", ваша зарплата теперь равна " + boostedWage + ", в связи с тем, что люди, работающие у нас больше 3 лет получают надбавку к зарплате в виде 10%, что на " + profitYear + " рублей в год больше, чем вы получали раннее.");
+        }
+        else {
+            int need = experience - quest;
+            System.out.println("Уважаемый(ая) " + name + ", ваша зарплата равна " + wage + " рублям. Через " + need + " год(а) вы сможете получить надбавку к зарплате на 10%");
+        }
+        /// Попробовал поэксперементировать, надеюсь вы хотя бы взгланите на мою работу. Я старался.
     }
 }
